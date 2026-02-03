@@ -1,0 +1,24 @@
+# 1. Disable Directory Browsing (Security Risk)
+Options -Indexes
+
+# 2. Force HTTPS (Encryption)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 3. Block Access to Hidden Files (like .git, .env)
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# 4. Protect Includes Directory (Optional but Recommended)
+# Prevent direct access to PHP files in includes folder
+<IfModule mod_rewrite.c>
+    RewriteRule ^includes/.*\.php$ - [F,L]
+</IfModule>
+
+# 5. Set Default Character Set
+AddDefaultCharset UTF-8

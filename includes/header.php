@@ -21,6 +21,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($pageTitle); ?></title>
     <link rel="canonical" href="https://fionaorganics.com/<?php echo basename($_SERVER['PHP_SELF']); ?>" />
+    <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Fiona Organics provides 100% pure, farm-fresh Moringa, Beetroot, and Turmeric powders. Chemical-free, nutrient-rich, and eco-friendly superfoods directly from nature.">

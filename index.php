@@ -30,8 +30,44 @@ $products = [
     ]
 ];
 
+// SEO: Generate Structured Data for Products
+$schemaData = [
+    "@context" => "https://schema.org",
+    "@type" => "ItemList",
+    "itemListElement" => []
+];
+
+foreach ($products as $index => $product) {
+    $schemaData['itemListElement'][] = [
+        "@type" => "ListItem",
+        "position" => $index + 1,
+        "item" => [
+            "@type" => "Product",
+            "name" => $product['name'],
+            "description" => $product['benefits'],
+            "image" => "https://fionaorganics.com/assets/images/logo.jpg",
+            "brand" => [
+                "@type" => "Brand",
+                "name" => "Fiona Organics"
+            ],
+            "offers" => [
+                "@type" => "Offer",
+                "availability" => "https://schema.org/InStock",
+                "price" => "0.00",
+                "priceCurrency" => "INR"
+            ]
+        ]
+    ];
+}
+
+
 include 'includes/header.php';
 ?>
+
+<!-- Structured Data Output -->
+<script type="application/ld+json">
+    <?php echo json_encode($schemaData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>
+</script>
 
 <main>
     <!-- Hero Section -->
