@@ -89,9 +89,9 @@ export async function POST(request) {
     }
 
     // Use EmailJS REST API directly (more secure than browser SDK)
-    const SERVICE_ID = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID;
-    const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID;
-    const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY;
+    const SERVICE_ID = process.env.EMAIL_SERVICE_ID;
+    const TEMPLATE_ID = process.env.EMAIL_TEMPLATE_ID;
+    const PUBLIC_KEY = process.env.EMAIL_PUBLIC_KEY;
 
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
       console.error('EmailJS configuration missing');

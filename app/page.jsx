@@ -17,44 +17,67 @@ export default function Home() {
             <main>
                 {/* Hero Section */}
                 <section className="hero" style={{ background: 'linear-gradient(180deg, var(--bg-color) 0%, rgba(255,255,255,0.6) 100%)', padding: '120px 0 80px' }}>
-                    <div className="container hero-content reveal">
-                        <h1 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>
-                            Revitalize Your Life with <br />
-                            <span className="text-gradient" style={{ background: 'linear-gradient(135deg, #1a4d2e, #4f6f52)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                                Nature's Finest Superfoods
-                            </span>
-                        </h1>
+                    <div className="container reveal">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '4rem', flexWrap: 'wrap' }}>
+                            <div style={{ flex: 1, minWidth: '300px' }}>
+                                <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', textAlign: 'left' }}>
+                                    Revitalize Your Life with <br />
+                                    <span className="text-gradient" style={{ background: 'linear-gradient(135deg, #1a4d2e, #4f6f52)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                                        Nature's Finest Superfoods
+                                    </span>
+                                </h1>
 
-                        <div style={{ maxWidth: '800px', margin: '0 auto 3rem' }}>
-                            <p style={{ fontSize: '1.4rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
-                                <strong>Fiona Organics</strong> brings you the purest, farm-fresh powders.
-                                We believe in the healing power of plants. Our products are carefully sourced,
-                                sun-dried, and stone-ground to preserve 100% of their natural nutrients.
-                            </p>
-                            <p style={{ fontSize: '1.1rem', color: '#666' }}>
-                                Whether you are boosting your immunity with Moringa, detoxing with Beetroot,
-                                or fighting inflammation with Halidi — we guarantee <strong>Zero Preservatives, Zero Additives, and 100% Love.</strong>
-                            </p>
-                        </div>
+                                <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '2rem', lineHeight: '1.8', textAlign: 'left' }}>
+                                    <strong>Fiona Organics</strong> brings you the purest, farm-fresh powders.
+                                    Our products are carefully sourced, sun-dried, and stone-ground to preserve 100% of their natural nutrients.
+                                </p>
 
-                        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '4rem', flexWrap: 'wrap' }}>
-                            <a href="#products" className="btn btn-primary" style={{ padding: '15px 40px', fontSize: '1.1rem' }}>Explore Products</a>
-                            <a href="#benefits" className="btn" style={{ background: 'white', border: '2px solid var(--accent-color)', color: 'var(--accent-color)', padding: '15px 40px', fontSize: '1.1rem' }}>Why Organic?</a>
-                        </div>
+                                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-start', marginBottom: '3rem', flexWrap: 'wrap' }}>
+                                    <a href="#products" className="btn btn-primary" style={{ padding: '15px 40px', fontSize: '1.1rem' }}>Explore Products</a>
+                                    <a href="#benefits" className="btn" style={{ background: 'white', border: '2px solid var(--accent-color)', color: 'var(--accent-color)', padding: '15px 40px', fontSize: '1.1rem' }}>Why Organic?</a>
+                                </div>
 
-                        {/* Key Features Icons */}
-                        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', opacity: 0.8 }}>
-                            <div style={{ textAlign: 'center', minWidth: '120px' }}>
-                                <span style={{ fontSize: '2rem' }}>🌿</span><br /><span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>100% Organic</span>
+                                {/* Key Features Icons */}
+                                <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '1.5rem', flexWrap: 'wrap', opacity: 0.8 }}>
+                                    <div style={{ textAlign: 'center' }}>
+                                        <span style={{ fontSize: '1.5rem' }}>🌿</span><br /><span style={{ fontSize: '0.8rem', fontWeight: 600 }}>100% Organic</span>
+                                    </div>
+                                    <div style={{ textAlign: 'center' }}>
+                                        <span style={{ fontSize: '1.5rem' }}>🚜</span><br /><span style={{ fontSize: '0.8rem', fontWeight: 600 }}>Farm Fresh</span>
+                                    </div>
+                                    <div style={{ textAlign: 'center' }}>
+                                        <span style={{ fontSize: '1.5rem' }}>🔬</span><br /><span style={{ fontSize: '0.8rem', fontWeight: 600 }}>Lab Tested</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div style={{ textAlign: 'center', minWidth: '120px' }}>
-                                <span style={{ fontSize: '2rem' }}>🚜</span><br /><span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>Farm Fresh</span>
-                            </div>
-                            <div style={{ textAlign: 'center', minWidth: '120px' }}>
-                                <span style={{ fontSize: '2rem' }}>🔬</span><br /><span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>Lab Tested</span>
-                            </div>
-                            <div style={{ textAlign: 'center', minWidth: '120px' }}>
-                                <span style={{ fontSize: '2rem' }}>💚</span><br /><span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>Vegan Friendly</span>
+
+                            <div style={{ flex: 1, minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+                                <div style={{ position: 'relative', width: '100%', maxWidth: '500px' }}>
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '10%',
+                                        left: '10%',
+                                        width: '100%',
+                                        height: '100%',
+                                        background: 'var(--accent-color)',
+                                        opacity: 0.1,
+                                        borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+                                        zIndex: 0
+                                    }}></div>
+                                    <img
+                                        src="/assets/images/products/moringa.png"
+                                        alt="Fiona Organics Moringa"
+                                        style={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            borderRadius: '20px',
+                                            boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                                            position: 'relative',
+                                            zIndex: 1,
+                                            transform: 'rotate(-2deg)'
+                                        }}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,14 +90,26 @@ export default function Home() {
 
                         <div className="features-grid">
                             {products.map((product) => (
-                                <div key={product.id} className="feature-card reveal" style={{ textAlign: 'left' }}>
-                                    <div className="feature-icon" style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>{product.icon}</div>
+                                <div key={product.id} className="feature-card reveal" style={{ textAlign: 'left', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                                    {product.image && (
+                                        <div style={{ width: '100%', height: '240px', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.5rem' }}>
+                                            <img
+                                                src={product.image}
+                                                alt={product.name}
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                                                onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                                                onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
+                                        </div>
+                                    )}
+                                    {!product.image && <div className="feature-icon" style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>{product.icon}</div>}
+
                                     <h3 style={{ fontSize: '1.8rem', marginBottom: '0.2rem' }}>{product.name}</h3>
                                     <p style={{ color: 'var(--accent-color)', fontWeight: 600, fontSize: '0.9rem', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                         {product.tagline}
                                     </p>
 
-                                    <div style={{ marginBottom: '1rem' }}>
+                                    <div style={{ marginBottom: '1rem', flex: 1 }}>
                                         <strong>💚 Benefits:</strong><br />
                                         <span style={{ color: 'var(--text-secondary)' }}>{product.benefits}</span>
                                     </div>
@@ -84,10 +119,18 @@ export default function Home() {
                                         <span style={{ color: 'var(--text-secondary)' }}>{product.uses}</span>
                                     </div>
 
-                                    <div>
+                                    <div style={{ marginBottom: '1.5rem' }}>
                                         <strong>🏥 Good For Health:</strong><br />
                                         <span style={{ color: 'var(--text-secondary)' }}>{product.health}</span>
                                     </div>
+
+                                    <button
+                                        className="btn btn-primary"
+                                        style={{ width: '100%', marginTop: 'auto' }}
+                                        onClick={openModal}
+                                    >
+                                        Inquire Now
+                                    </button>
                                 </div>
                             ))}
                         </div>

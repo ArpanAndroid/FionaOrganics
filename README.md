@@ -41,9 +41,9 @@ npm install
 
 3. Create a `.env.local` file in the root directory:
 ```env
-NEXT_PUBLIC_EMAIL_SERVICE_ID=your_emailjs_service_id
-NEXT_PUBLIC_EMAIL_TEMPLATE_ID=your_emailjs_template_id
-NEXT_PUBLIC_EMAIL_PUBLIC_KEY=your_emailjs_public_key
+EMAIL_SERVICE_ID=your_emailjs_service_id
+EMAIL_TEMPLATE_ID=your_emailjs_template_id
+EMAIL_PUBLIC_KEY=your_emailjs_public_key
 ```
 
 4. Run the development server:
