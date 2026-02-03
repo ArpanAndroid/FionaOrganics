@@ -6,40 +6,49 @@ import { useFormViewModel } from '../viewmodels/useFormViewModel';
 const InterestModal = ({ isOpen, onClose }) => {
     const { formData, status, isSubmitting, handleChange, handleSubmit, resetForm } = useFormViewModel();
 
-    // Handle modal close - reset form if closing manually (not after success)
     const handleClose = () => {
-        // Only reset if not a successful submission
-        if (status.type !== 'success') {
-            resetForm();
-        } else {
-            // If closing after success, just clear status
-            resetForm();
-        }
+        resetForm();
         onClose();
     };
 
     if (!isOpen) return null;
 
     return (
-        <div className="modal-overlay" onClick={(e) => { 
+        <div className="modal-overlay" onClick={(e) => {
             if (e.target === e.currentTarget) {
                 handleClose();
             }
         }}>
             <div className="modal-content">
-                <button 
-                    className="close-modal" 
+                <button
+                    className="close-modal"
                     onClick={handleClose}
                     aria-label="Close modal"
                     type="button"
                 >
-                    &times;
+                    ✕
                 </button>
 
                 <div className="form-container">
-                    <h2 style={{ color: 'var(--accent-color)', textAlign: 'center', marginBottom: '1.5rem' }}>
-                        Join Our Organic Community
+                    <span className="section-subtitle" style={{ fontSize: '0.75rem' }}>Join the community</span>
+                    <h2 style={{
+                        color: 'var(--primary-color)',
+                        textAlign: 'center',
+                        fontSize: '2.5rem',
+                        marginBottom: '1rem',
+                        fontFamily: 'Playfair Display, serif'
+                    }}>
+                        Get in Touch
                     </h2>
+                    <p style={{
+                        textAlign: 'center',
+                        color: 'var(--text-secondary)',
+                        marginBottom: '2.5rem',
+                        fontSize: '0.95rem'
+                    }}>
+                        Discover the purity of nature. Leave your details and we will reach out to you shortly.
+                    </p>
+
                     <form onSubmit={(e) => handleSubmit(e, onClose)}>
                         <div className="form-group">
                             <label htmlFor="name">Full Name</label>
@@ -50,7 +59,7 @@ const InterestModal = ({ isOpen, onClose }) => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                placeholder="Enter your full name"
+                                placeholder="e.g. Arpan Chakraborty"
                             />
                         </div>
 
@@ -63,7 +72,7 @@ const InterestModal = ({ isOpen, onClose }) => {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 required
-                                placeholder="Enter your mobile number"
+                                placeholder="e.g. +91 89006 86683"
                             />
                         </div>
 
@@ -83,22 +92,25 @@ const InterestModal = ({ isOpen, onClose }) => {
                         <button
                             type="submit"
                             className="btn btn-primary"
-                            style={{ width: '100%', marginTop: '1rem' }}
+                            style={{ width: '100%', marginTop: '1rem', padding: '20px' }}
                             disabled={isSubmitting}
                         >
-                            {isSubmitting ? 'Sending...' : 'Submit Interest'}
+                            {isSubmitting ? 'Processing...' : 'Send Inquiry'}
                         </button>
 
                         {status.message && (
-                            <p className="error-msg" style={{
+                            <div style={{
                                 textAlign: 'center',
-                                height: 'auto',
-                                color: status.type === 'success' ? 'green' : '#d32f2f',
-                                display: 'block',
-                                marginTop: '1rem'
+                                padding: '15px',
+                                borderRadius: '12px',
+                                background: status.type === 'success' ? 'rgba(26, 77, 46, 0.05)' : 'rgba(211, 47, 47, 0.05)',
+                                color: status.type === 'success' ? 'var(--primary-color)' : '#d32f2f',
+                                fontSize: '0.9rem',
+                                marginTop: '1.5rem',
+                                fontWeight: '500'
                             }}>
                                 {status.message}
-                            </p>
+                            </div>
                         )}
                     </form>
                 </div>
