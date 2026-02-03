@@ -1,15 +1,40 @@
+'use client';
+
 import React from 'react';
-import { useFormViewModel } from '../../viewmodels/useFormViewModel';
+import { useFormViewModel } from '../viewmodels/useFormViewModel';
 
 const InterestModal = ({ isOpen, onClose }) => {
-    const { formData, status, isSubmitting, handleChange, handleSubmit } = useFormViewModel();
+    const { formData, status, isSubmitting, handleChange, handleSubmit, resetForm } = useFormViewModel();
+
+    // Handle modal close - reset form if closing manually (not after success)
+    const handleClose = () => {
+        // Only reset if not a successful submission
+        if (status.type !== 'success') {
+            resetForm();
+        } else {
+            // If closing after success, just clear status
+            resetForm();
+        }
+        onClose();
+    };
 
     if (!isOpen) return null;
 
     return (
-        <div className="modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+        <div className="modal-overlay" onClick={(e) => { 
+            if (e.target === e.currentTarget) {
+                handleClose();
+            }
+        }}>
             <div className="modal-content">
-                <span className="close-modal" onClick={onClose}>&times;</span>
+                <button 
+                    className="close-modal" 
+                    onClick={handleClose}
+                    aria-label="Close modal"
+                    type="button"
+                >
+                    &times;
+                </button>
 
                 <div className="form-container">
                     <h2 style={{ color: 'var(--accent-color)', textAlign: 'center', marginBottom: '1.5rem' }}>
