@@ -246,22 +246,28 @@ include 'includes/header.php';
         <div class="modal-content" style="max-width: 640px; padding: 1rem; height: 80vh; overflow-y: auto;">
             <span class="close-modal" style="z-index: 10; font-size: 2.5rem;">&times;</span>
             
-            <!-- Google Form Embed Placeholder -->
-            <!-- 🚨 INSTRUCTION: Replace the 'src' link below with your actual Google Form Embed Link -->
-            <!-- Go to Google Form -> Send -> <> (Embed) -> Copy Link -->
-            <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSddbS9-f9k4yM3l8kK_8b_example_id/viewform?embedded=true" 
-                width="100%" 
-                height="100%" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0"
-                style="min-height: 500px; border: none;">
-                Loading Google Form...
-            </iframe>
-            
-            <div style="text-align: center; margin-top: 10px; color: #666; font-size: 0.9rem;">
-                (Please update the Google Form Link in <code>index.php</code>)
+            <!-- Native Interest Form -->
+            <div class="form-container">
+                <h2 style="color: var(--accent-color); text-align: center; margin-bottom: 1.5rem;">Join Our Organic Community</h2>
+                <form id="interestForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your mobile number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="name@example.com">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Submit Interest</button>
+                    <p id="formStatus" class="error-msg" style="text-align: center; height: auto; display: none;"></p>
+                </form>
             </div>
         </div>
     </div>
