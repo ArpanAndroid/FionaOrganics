@@ -3,90 +3,112 @@ import { useEffect } from 'react';
 const OurStory = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
-        const reveals = document.querySelectorAll('.reveal');
-        const handleReveal = () => {
-            reveals.forEach(reveal => {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveal.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', handleReveal);
-        handleReveal();
-        return () => window.removeEventListener('scroll', handleReveal);
     }, []);
+
+    const timeline = [
+        {
+            year: 'Early 2023',
+            title: 'The Vision',
+            desc: 'Realized the gap between urban "organic" claims and actual rural purity during visits to local West Bengal villages.'
+        },
+        {
+            year: 'Late 2023',
+            title: 'Sourcing Network',
+            desc: 'Built direct relationships with over 50 small-scale farmers in 20+ villages across the state.'
+        },
+        {
+            year: 'Early 2024',
+            title: 'Habra Unit Launch',
+            desc: 'Established our state-of-the-art manufacturing facility in Habra to process herbs without high heat.'
+        },
+        {
+            year: 'Present',
+            title: 'Global Purity',
+            desc: 'Bringing 100% natural, additive-free herbal powders to health-conscious individuals everywhere.'
+        }
+    ];
 
     return (
         <main style={{ paddingTop: '100px' }}>
             <section className="section container">
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '5rem', alignItems: 'center' }}>
-                    <div className="reveal">
-                        <div style={{ position: 'relative' }}>
-                            <img src="/assets/images/moringa.png" style={{ width: '100%', borderRadius: '30px', boxShadow: 'var(--shadow)' }} alt="village roots" />
-                            <div style={{
-                                position: 'absolute',
-                                bottom: '-2rem',
-                                right: '-2rem',
-                                background: 'var(--primary)',
-                                color: 'white',
-                                padding: '2rem',
-                                borderRadius: '20px',
-                                maxWidth: '200px'
-                            }}>
-                                <h4 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>100%</h4>
-                                <p style={{ fontSize: '0.8rem', opacity: '0.8' }}>Direct Village Collection</p>
-                            </div>
+                <div className="story-grid">
+                    <div className="reveal active story-image-wrapper">
+                        <img src="/assets/images/fiona-logo.jpg" className="story-main-img" alt="village roots" />
+                        <div className="story-stat-box">
+                            <h4>100%</h4>
+                            <p>Direct Village Collection</p>
                         </div>
                     </div>
-                    <div className="reveal">
-                        <span style={{ color: 'var(--accent)', fontWeight: '600', fontSize: '0.9rem', letterSpacing: '2px', textTransform: 'uppercase' }}>Our Roots</span>
-                        <h2 style={{ fontSize: '3.5rem', margin: '1rem 0 2rem', color: 'var(--primary)' }}>A Journey from the <br />Village to Your Soul.</h2>
-                        <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem', color: 'var(--text-dark)' }}>
-                            The fiona-organics story didn't begin in a boardroom; it began in the lush, green fields of rural West Bengal.
+                    <div className="reveal active story-content">
+                        <span className="accent-text">Our Roots</span>
+                        <h2 className="display-h2">A Journey from the <br />Village to Your Soul.</h2>
+                        <p className="lead-text">
+                            The Fiona Organics story didn't begin in a boardroom; it began in the lush, green fields of rural West Bengal.
                         </p>
-                        <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.8' }}>
+                        <p className="body-text">
                             Growing up in the village, we saw the incredible power of natural herbs used in every household. However, we also noticed that by the time these herbs reached the cities, they lost their purity through long supply chains and additives.
                             <br /><br />
-                            In 2024, we started our manufacturing journey in **Habra** with a single mission: to collect the finest produce directly from our village farmers and process them with zero compromises. Every jar of fiona-organics is a tribute to our village roots.
+                            In 2024, we started our manufacturing journey in **Habra** with a single mission: to collect the finest produce directly from our village farmers and process them with zero compromises. Every jar of Fiona Organics is a tribute to our village roots.
                         </p>
-                        <div style={{ display: 'flex', gap: '3rem' }}>
-                            <div>
-                                <h6 style={{ fontSize: '1.2rem', color: 'var(--primary)' }}>Habra, WB</h6>
-                                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Manufacturing Hub</p>
+                        <div className="story-quick-stats">
+                            <div className="quick-stat">
+                                <h6>Habra, WB</h6>
+                                <p>Manufacturing Hub</p>
                             </div>
-                            <div>
-                                <h6 style={{ fontSize: '1.2rem', color: 'var(--primary)' }}>20+ Villages</h6>
-                                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Direct Sourcing</p>
+                            <div className="quick-stat">
+                                <h6>20+ Villages</h6>
+                                <p>Direct Sourcing</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="section" style={{ background: '#fcfcfc' }}>
+            {/* Timeline Section */}
+            <section className="section bg-light-green">
                 <div className="container">
-                    <div className="reveal" style={{ textAlign: 'center', marginBottom: '5rem' }}>
-                        <h2 style={{ fontSize: '3rem' }}>Why We Stand Out</h2>
-                        <p style={{ color: 'var(--text-muted)' }}>We bridge the gap between rural purity and modern wellness.</p>
+                    <div className="reveal active text-center" style={{ marginBottom: '5rem' }}>
+                        <span className="accent-text">Our Journey</span>
+                        <h2 className="display-h2">The Path of Purity</h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
-                        <div className="reveal product-card" style={{ textAlign: 'center', border: 'none' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>🏠</div>
+                    <div className="timeline-container">
+                        {timeline.map((item, i) => (
+                            <div key={i} className="timeline-item reveal active">
+                                <div className="timeline-dot"></div>
+                                <div className="timeline-date">{item.year}</div>
+                                <div className="timeline-content">
+                                    <h4>{item.title}</h4>
+                                    <p>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="section">
+                <div className="container">
+                    <div className="reveal active text-center" style={{ marginBottom: '5rem' }}>
+                        <h2 className="display-h2">Why We Stand Out</h2>
+                        <p className="body-text">We bridge the gap between rural purity and modern wellness.</p>
+                    </div>
+
+                    <div className="feature-grid">
+                        <div className="reveal active feature-card">
+                            <div className="feature-icon">🏠</div>
                             <h4>Direct Village Collection</h4>
-                            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>We eliminate middlemen. Our experts travel to collection villages to inspect and hand-pick the raw materials directly from the source.</p>
+                            <p className="feature-desc">We eliminate middlemen. Our experts travel to collection villages to inspect and hand-pick the raw materials directly from the source.</p>
                         </div>
-                        <div className="reveal product-card" style={{ textAlign: 'center', border: 'none' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>☀️</div>
+                        <div className="reveal active feature-card">
+                            <div className="feature-icon">☀️</div>
                             <h4>Shade-Dried Purity</h4>
-                            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>Commercial brands use high-heat ovens. We use natural shade-drying to ensure that the vital nutrients and enzymes are never destroyed.</p>
+                            <p className="feature-desc">Commercial brands use high-heat ovens. We use natural shade-drying to ensure that the vital nutrients and enzymes are never destroyed.</p>
                         </div>
-                        <div className="reveal product-card" style={{ textAlign: 'center', border: 'none' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>🛡️</div>
+                        <div className="reveal active feature-card">
+                            <div className="feature-icon">🛡️</div>
                             <h4>Lab Tested in Habra</h4>
-                            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>Every batch processed in our Habra unit is tested for purity. If it's not 100% organic, it doesn't leave our facility.</p>
+                            <p className="feature-desc">Every batch processed in our Habra unit is tested for purity. If it's not 100% organic, it doesn't leave our facility.</p>
                         </div>
                     </div>
                 </div>
