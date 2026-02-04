@@ -31,7 +31,7 @@ const Header = () => {
                     <Link to="/story" className={location.pathname === '/story' ? 'active-link' : ''}>Our Story</Link>
                     <Link to="/products" className={location.pathname === '/products' ? 'active-link' : ''}>Products</Link>
                     <Link to="/benefits" className={location.pathname === '/benefits' ? 'active-link' : ''}>Health Benefits</Link>
-                    <Link to="/contact" className={location.pathname === '/contact' ? 'active-link' : ''}>Community</Link>
+                    <Link to="/contact" className={location.pathname === '/contact' ? 'active-link' : ''}>Contact Us</Link>
                     <button className="btn btn-primary mobile-only" style={{ marginTop: '2rem' }}>Get Updates</button>
                 </nav>
 

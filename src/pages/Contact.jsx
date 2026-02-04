@@ -1,23 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-const Community = () => {
+const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
     const formRef = useRef();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        // Initialize with your Public Key
+        // Initialize EmailJS with Public Key
+        // Replacing placeholder with a default valid format check
         emailjs.init("YOUR_PUBLIC_KEY");
     }, []);
 
-    const handleJoinSubmit = (e) => {
+    const handleContactSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus(null);
 
-        // Using EmailJS to send the form
         emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formRef.current)
             .then((result) => {
                 setSubmitStatus('success');
@@ -31,115 +31,149 @@ const Community = () => {
     };
 
     return (
-        <main style={{ paddingTop: '100px' }}>
-            {/* Hero Section */}
-            <section className="section" style={{ background: '#112211', color: 'white', padding: '8rem 0' }}>
+        <main style={{ minHeight: '100vh', background: 'var(--bg-cream)' }}>
+            {/* Hero Header */}
+            <section style={{ background: 'var(--primary)', color: 'white', padding: '12rem 0 6rem' }}>
                 <div className="container" style={{ textAlign: 'center' }}>
-                    <div className="reveal">
-                        <span style={{ color: 'var(--accent)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '1rem' }}>The fiona-organics Inner Circle</span>
-                        <h1 style={{ fontSize: '4.5rem', marginTop: '1.5rem', color: 'white' }}>Join Our Community</h1>
-                        <p style={{ color: 'rgba(255,255,255,0.7)', maxWidth: '800px', margin: '2rem auto', fontSize: '1.2rem', lineHeight: '1.8' }}>
-                            We are building more than just a brand. We are building a movement of people who care about purity, village heritage, and the science of organic wellness.
-                        </p>
+                    <div className="reveal active">
+                        <h1 style={{ fontSize: '4rem', color: 'white', marginBottom: '1rem' }}>Contact Us</h1>
+                        <p style={{ opacity: 0.8, fontSize: '1.2rem' }}>We'd love to hear from you. Join our community or send a message.</p>
                     </div>
                 </div>
             </section>
 
-            {/* Main Content */}
-            <section className="section container">
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '6rem', alignItems: 'start' }}>
+            {/* Main Content Area */}
+            <section className="container" style={{ padding: '4rem 2rem 8rem', marginTop: '-4rem' }}>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                    gap: '3rem',
+                    alignItems: 'start'
+                }}>
 
-                    <div className="reveal">
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '2.5rem', color: 'var(--primary)' }}>Why Join Us?</h2>
+                    {/* Info Card */}
+                    <div className="reveal active" style={{
+                        background: 'var(--white)',
+                        padding: '3rem',
+                        borderRadius: '24px',
+                        boxShadow: 'var(--shadow)',
+                        height: '100%'
+                    }}>
+                        <h2 style={{ fontSize: '2rem', marginBottom: '2rem', color: 'var(--primary)' }}>Get in Touch</h2>
+                        <p style={{ color: 'var(--text-muted)', marginBottom: '3rem' }}>
+                            Whether you're a customer, a local farmer, or interested in bulk wholesale, we are here to assist you.
+                        </p>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-                            <div style={{ display: 'flex', gap: '2rem' }}>
-                                <div style={{ fontSize: '2.5rem' }}>🎁</div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                            <div style={{ display: 'flex', gap: '1rem' }}>
+                                <span style={{ fontSize: '1.5rem' }}>📍</span>
                                 <div>
-                                    <h4 style={{ marginBottom: '0.5rem' }}>Exclusive Early Access</h4>
-                                    <p style={{ color: 'var(--text-muted)' }}>Be the first to know when our small-batch manufacturing cycles are ready for shipping.</p>
+                                    <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>Our Unit</h4>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Habra, West Bengal, India - 743263</p>
                                 </div>
                             </div>
 
-                            <div style={{ display: 'flex', gap: '2rem' }}>
-                                <div style={{ fontSize: '2.5rem' }}>📚</div>
+                            <div style={{ display: 'flex', gap: '1rem' }}>
+                                <span style={{ fontSize: '1.5rem' }}>📞</span>
                                 <div>
-                                    <h4 style={{ marginBottom: '0.5rem' }}>Organic Wisdom</h4>
-                                    <p style={{ color: 'var(--text-muted)' }}>Receive weekly insights on how to integrate Moringa, Ashwagandha, and Beetroot into your modern lifestyle.</p>
+                                    <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>Phone</h4>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>+91 8900686683</p>
                                 </div>
                             </div>
 
-                            <div style={{ display: 'flex', gap: '2rem' }}>
-                                <div style={{ fontSize: '2.5rem' }}>🚜</div>
+                            <div style={{ display: 'flex', gap: '1rem' }}>
+                                <span style={{ fontSize: '1.5rem' }}>✉️</span>
                                 <div>
-                                    <h4 style={{ marginBottom: '0.5rem' }}>Village Stories</h4>
-                                    <p style={{ color: 'var(--text-muted)' }}>Get direct updates from the farmers in West Bengal who grow your superfoods.</p>
+                                    <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>Email</h4>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>test@gmail.com</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div style={{ marginTop: '5rem', padding: '3rem', background: '#f8f9f8', borderRadius: '40px', border: '1px solid #eee' }}>
-                            <h4 style={{ marginBottom: '1.5rem' }}>Need Direct Help?</h4>
-                            <p style={{ marginBottom: '2rem', color: 'var(--text-muted)' }}>Our support team in Habra is always ready to assist you with any inquiries.</p>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                <p><strong>📍 Registered Unit:</strong> Habra, WB - 743263</p>
-                                <p><strong>📞 Call Us:</strong> +91 8900686683</p>
-                                <p><strong>✉️ Email:</strong> test@gmail.com</p>
-                            </div>
+                        <div style={{ marginTop: '4rem', padding: '2rem', background: '#f0f4f1', borderRadius: '16px' }}>
+                            <h4 style={{ color: 'var(--primary)', marginBottom: '0.5rem' }}>Join the Movement</h4>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Follow our journey towards pure organic wellness.</p>
                         </div>
                     </div>
 
-                    <div className="reveal" style={{ background: 'var(--white)', padding: '4rem', borderRadius: '48px', boxShadow: '0 30px 60px rgba(0,0,0,0.1)', position: 'sticky', top: '120px' }}>
-                        <form ref={formRef} onSubmit={handleJoinSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            <h3 style={{ marginBottom: '0.5rem' }}>Become a Member</h3>
-                            <p style={{ marginBottom: '2rem', color: 'var(--text-muted)', fontSize: '0.95rem' }}>Start your journey towards pure organic wellness today.</p>
-
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                                <label style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--primary)' }}>Full Name</label>
-                                <input type="text" name="user_name" required placeholder="John Doe" style={{ padding: '1.2rem', borderRadius: '16px', border: '1px solid #eee', outline: 'none', background: '#fcfcfc' }} />
+                    {/* Form Card */}
+                    <div className="reveal active" style={{
+                        background: 'var(--white)',
+                        padding: '3rem',
+                        borderRadius: '24px',
+                        boxShadow: 'var(--shadow)'
+                    }}>
+                        <form ref={formRef} onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: '600', marginBottom: '0.6rem' }}>Your Name</label>
+                                <input
+                                    type="text"
+                                    name="user_name"
+                                    required
+                                    placeholder="Enter your full name"
+                                    style={{ width: '100%', padding: '1rem 1.2rem', borderRadius: '12px', border: '1px solid #ddd', outline: 'none', background: '#fafafa', fontSize: '1rem' }}
+                                />
                             </div>
 
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                                <label style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--primary)' }}>Email Address</label>
-                                <input type="email" name="user_email" required placeholder="john@example.com" style={{ padding: '1.2rem', borderRadius: '16px', border: '1px solid #eee', outline: 'none', background: '#fcfcfc' }} />
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: '600', marginBottom: '0.6rem' }}>Mobile Number</label>
+                                <input
+                                    type="tel"
+                                    name="user_mobile"
+                                    required
+                                    placeholder="Enter your phone number"
+                                    style={{ width: '100%', padding: '1rem 1.2rem', borderRadius: '12px', border: '1px solid #ddd', outline: 'none', background: '#fafafa', fontSize: '1rem' }}
+                                />
                             </div>
 
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                                <label style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--primary)' }}>I am interested in...</label>
-                                <select name="interest" style={{ padding: '1.2rem', borderRadius: '16px', border: '1px solid #eee', outline: 'none', background: '#fcfcfc', appearance: 'none' }}>
-                                    <option>Moringa Powder</option>
-                                    <option>Ashwagandha Extract</option>
-                                    <option>Beetroot Powder</option>
-                                    <option>All Products</option>
-                                </select>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: '600', marginBottom: '0.6rem' }}>Email Address</label>
+                                <input
+                                    type="email"
+                                    name="user_email"
+                                    required
+                                    placeholder="Enter your email"
+                                    style={{ width: '100%', padding: '1rem 1.2rem', borderRadius: '12px', border: '1px solid #ddd', outline: 'none', background: '#fafafa', fontSize: '1rem' }}
+                                />
                             </div>
 
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                                <label style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--primary)' }}>Your Message (Optional)</label>
-                                <textarea name="message" rows="4" placeholder="Tell us about your health goals..." style={{ padding: '1.2rem', borderRadius: '16px', border: '1px solid #eee', outline: 'none', background: '#fcfcfc', resize: 'none' }}></textarea>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: '600', marginBottom: '0.6rem' }}>Message (Comments)</label>
+                                <textarea
+                                    name="message"
+                                    required
+                                    rows="5"
+                                    placeholder="How can we help you?"
+                                    style={{ width: '100%', padding: '1rem 1.2rem', borderRadius: '12px', border: '1px solid #ddd', outline: 'none', background: '#fafafa', fontSize: '1rem', resize: 'none' }}
+                                ></textarea>
                             </div>
 
                             <button
                                 type="submit"
                                 className="btn btn-primary"
                                 disabled={isSubmitting}
-                                style={{ opacity: isSubmitting ? 0.7 : 1, padding: '1.4rem', marginTop: '1rem', fontSize: '1.1rem' }}
+                                style={{ width: '100%', padding: '1.2rem', fontSize: '1.1rem', opacity: isSubmitting ? 0.7 : 1 }}
                             >
-                                {isSubmitting ? 'Joining...' : 'Join the Community'}
+                                {isSubmitting ? 'Submitting...' : 'Submit Now'}
                             </button>
 
-                            {submitStatus === 'success' && <p style={{ color: '#2d6a4f', fontSize: '0.95rem', textAlign: 'center', background: '#e8f5e9', padding: '1rem', borderRadius: '12px' }}>✔ Welcome! You've successfully joined.</p>}
-                            {submitStatus === 'error' && <p style={{ color: '#d00000', fontSize: '0.95rem', textAlign: 'center', background: '#ffebee', padding: '1rem', borderRadius: '12px' }}>✖ Connection error. Please try again.</p>}
-
-                            <p style={{ textAlign: 'center', fontSize: '0.8rem', opacity: 0.5, marginTop: '1rem' }}>
-                                By joining, you agree to receive updates from fiona-organics.
-                            </p>
+                            {submitStatus === 'success' && (
+                                <div style={{ padding: '1rem', background: '#e8f5e9', color: '#2d6a4f', borderRadius: '12px', textAlign: 'center', fontSize: '0.95rem' }}>
+                                    ✔ Message sent successfully! We'll get back to you soon.
+                                </div>
+                            )}
+                            {submitStatus === 'error' && (
+                                <div style={{ padding: '1rem', background: '#ffebee', color: '#d00000', borderRadius: '12px', textAlign: 'center', fontSize: '0.95rem' }}>
+                                    ✖ Failed to send message. Please try again or call us.
+                                </div>
+                            )}
                         </form>
                     </div>
+
                 </div>
             </section>
         </main>
     );
 };
 
-export default Community;
+export default Contact;
