@@ -115,24 +115,23 @@ header.scrolled {
 .logo-container {
     display: inline-flex;
     align-items: center;
-    padding: 0.5rem 1.2rem;
-    background: var(--primary);
+    padding: 0.6rem 1.4rem;
+    background: var(--white);
     border-radius: 50px;
     transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .logo-container:hover {
-    background: var(--primary-light);
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: -0.5px;
-    text-transform: lowercase;
+.logo-img {
+    height: 32px;
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -223,6 +222,16 @@ header.scrolled {
     color: var(--accent);
     font-weight: 600;
     font-size: 1.2rem;
+}
+
+.benefit-card {
+    transition: var(--transition);
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Animations */
@@ -380,6 +389,14 @@ header.scrolled {
     .btn {
         width: 100%;
         text-align: center;
+    }
+
+    .logo-container {
+        padding: 0.4rem 1rem;
+    }
+
+    .logo-img {
+        height: 28px;
     }
 
     .hero-content div {

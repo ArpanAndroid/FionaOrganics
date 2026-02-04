@@ -28,7 +28,13 @@ function App() {
       name: 'Pure Moringa Powder',
       description: 'The miracle tree leaf powder, rich in antioxidants and essential vitamins.',
       benefits: ['Boosts Immunity', 'Rich in Iron', 'Anti-inflammatory'],
-      details: 'Moringa contains 7x more Vitamin C than oranges and 15x more Potassium than bananas. It significantly improves energy levels and skin health.',
+      pointDetails: [
+        'Contains 7x more Vitamin C than oranges to shield your immune system.',
+        '15x more Potassium than bananas for optimal heart and muscle function.',
+        'High concentration of Chromium helps in regulating blood sugar levels.',
+        'Rich in Vitamin A, supporting healthy vision and radiant skin.',
+        'Natural detoxifier that helps flush out toxins from the liver.'
+      ],
       status: 'Coming Soon',
       image: '/assets/images/moringa.png'
     },
@@ -36,7 +42,13 @@ function App() {
       name: 'Beetroot Extract',
       description: 'Natural heart health hero. Pure, vibrant, and packed with nitrates.',
       benefits: ['Blood Pressure Support', 'Energy Booster', 'Liver Detox'],
-      details: 'High in inorganic nitrates that convert to nitric oxide, which dilates blood vessels, increasing oxygen delivery to muscles and improving stamina.',
+      pointDetails: [
+        'Boosts Nitric Oxide levels, significantly improving athletic performance.',
+        'Natural source of Betaine which supports healthy liver function.',
+        'Improves blood flow to the brain, enhancing cognitive focus.',
+        'Contains powerful Betalains which have potent anti-inflammatory properties.',
+        'High fiber content supports better digestion and weight management.'
+      ],
       status: 'Coming Soon',
       image: '/assets/images/beetroot.png'
     },
@@ -44,7 +56,13 @@ function App() {
       name: 'Root Ashwagandha',
       description: 'Premium adaptogen to help your body manage stress and boost vitality.',
       benefits: ['Stress Relief', 'Better Sleep', 'Brain Function'],
-      details: 'Known as the "Prince of Herbs", it helps lower cortisol levels and regulates your bodys stress response for deep, restorative sleep.',
+      pointDetails: [
+        'Clinically proven to reduce cortisol levels (the stress hormone).',
+        'Enhances muscle strength and recovery after intense workouts.',
+        'Supports natural testosterone levels and overall hormonal balance.',
+        'Improves memory and cognitive reaction time.',
+        'Acts as a natural sedative to ensure deep, restorative sleep cycles.'
+      ],
       status: 'Coming Soon',
       image: '/assets/images/ashwagandha.png'
     }
@@ -55,7 +73,7 @@ function App() {
       <header className={`${scrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'mobile-menu-active' : ''}`}>
         <div className="container nav-content">
           <a href="#" className="logo-container">
-            <span className="logo">fiona-organics</span>
+            <img src="/assets/images/fiona-logo.jpg" alt="fiona-organics" className="logo-img" />
           </a>
 
           <nav className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
@@ -226,16 +244,30 @@ function App() {
               <p style={{ color: 'rgba(255,255,255,0.7)' }}>Deep dive into the health science of our manufactured products.</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
               {products.map((p, i) => (
-                <div key={i} className="reveal" style={{
-                  padding: '2.5rem',
+                <div key={i} className="reveal benefit-card" style={{
+                  padding: '3rem',
                   background: 'rgba(255,255,255,0.05)',
-                  borderRadius: '24px',
-                  border: '1px solid rgba(255,255,255,0.1)'
+                  borderRadius: '32px',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  height: '100%'
                 }}>
-                  <h4 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{p.name}</h4>
-                  <p style={{ fontSize: '0.95rem', opacity: '0.8', lineHeight: '1.8' }}>{p.details}</p>
+                  <h4 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: 'var(--accent)' }}>{p.name}</h4>
+                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                    {p.pointDetails.map((point, idx) => (
+                      <li key={idx} style={{
+                        display: 'flex',
+                        gap: '1rem',
+                        fontSize: '1rem',
+                        lineHeight: '1.6',
+                        opacity: '0.9'
+                      }}>
+                        <span style={{ color: 'var(--accent)', fontSize: '1.2rem', flexShrink: 0 }}>✦</span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
@@ -296,8 +328,8 @@ function App() {
 
       <footer style={{ padding: '4rem 0', background: '#112211', color: 'var(--white)', textAlign: 'center' }}>
         <div className="container">
-          <div className="logo-container" style={{ marginBottom: '1.5rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <span className="logo">fiona-organics</span>
+          <div className="logo-container" style={{ marginBottom: '1.5rem', background: 'white', padding: '0.8rem 1.5rem' }}>
+            <img src="/assets/images/fiona-logo.jpg" alt="fiona-organics" className="logo-img" />
           </div>
           <p style={{ opacity: '0.7', marginBottom: '2rem' }}>Nurturing your health with the purity of nature.</p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '3rem' }}>
