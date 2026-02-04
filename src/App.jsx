@@ -1,10 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error'
+  const formRef = useRef();
 
   useEffect(() => {
+    // Initialize EmailJS with your Public Key
+    // You should replace 'YOUR_PUBLIC_KEY' with your actual key from EmailJS dashboard
+    emailjs.init("YOUR_PUBLIC_KEY");
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -22,6 +30,27 @@ function App() {
     handleScroll(); // Check on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    // Using EmailJS to send the form
+    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formRef.current)
+      .then((result) => {
+        console.log('Email sent successfully:', result.text);
+        setSubmitStatus('success');
+        setIsSubmitting(false);
+        formRef.current.reset();
+        setTimeout(() => setSubmitStatus(null), 5000);
+      }, (error) => {
+        console.error('Failed to send email:', error.text);
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+      });
+  };
 
   const products = [
     {
@@ -273,21 +302,40 @@ function App() {
             </div>
 
             <div className="reveal" style={{ background: 'var(--white)', padding: '3rem', borderRadius: '32px', boxShadow: 'var(--shadow)' }}>
-              <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <form ref={formRef} onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <h4 style={{ marginBottom: '1rem' }}>Get in Touch</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontSize: '0.9rem', fontWeight: '500' }}>Full Name</label>
-                  <input type="text" placeholder="Your Name" style={{ padding: '1rem', borderRadius: '12px', border: '1px solid #eee', outline: 'none' }} />
+                  <input type="text" name="user_name" required placeholder="Your Name" style={{ padding: '1rem', borderRadius: '12px', border: '1px solid #eee', outline: 'none' }} />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontSize: '0.9rem', fontWeight: '500' }}>Email Address</label>
-                  <input type="email" placeholder="your@email.com" style={{ padding: '1rem', borderRadius: '12px', border: '1px solid #eee', outline: 'none' }} />
+                  <input type="email" name="user_email" required placeholder="your@email.com" style={{ padding: '1rem', borderRadius: '12px', border: '1px solid #eee', outline: 'none' }} />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontSize: '0.9rem', fontWeight: '500' }}>Inquiry Message</label>
-                  <textarea rows="4" placeholder="How can we help your health journey?" style={{ padding: '1rem', borderRadius: '12px', border: '1px solid #eee', outline: 'none', resize: 'none' }}></textarea>
+                  <textarea name="message" required rows="4" placeholder="How can we help your health journey?" style={{ padding: '1rem', borderRadius: '12px', border: '1px solid #eee', outline: 'none', resize: 'none' }}></textarea>
                 </div>
-                <button type="button" className="btn btn-primary">Submit Inquiry</button>
+
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  disabled={isSubmitting}
+                  style={{ opacity: isSubmitting ? 0.7 : 1 }}
+                >
+                  {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
+                </button>
+
+                {submitStatus === 'success' && (
+                  <p style={{ color: '#2d6a4f', fontSize: '0.9rem', marginTop: '1rem', textAlign: 'center' }}>
+                    ✔ Thank you! Your message has been sent.
+                  </p>
+                )}
+                {submitStatus === 'error' && (
+                  <p style={{ color: '#d00000', fontSize: '0.9rem', marginTop: '1rem', textAlign: 'center' }}>
+                    ✖ Failed to send message. Please try again.
+                  </p>
+                )}
               </form>
             </div>
           </div>
