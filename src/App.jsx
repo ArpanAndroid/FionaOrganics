@@ -33,7 +33,11 @@ function App() {
         '15x more Potassium than bananas for optimal heart and muscle function.',
         'High concentration of Chromium helps in regulating blood sugar levels.',
         'Rich in Vitamin A, supporting healthy vision and radiant skin.',
-        'Natural detoxifier that helps flush out toxins from the liver.'
+        'Natural detoxifier that helps flush out toxins from the liver and kidneys.',
+        'Contains 46 different types of antioxidants to combat cellular aging.',
+        'High protein content with all 9 essential amino acids for muscle repair.',
+        'Naturally boosts breast milk production in nursing mothers.',
+        'Helps reduce chronic inflammation and joint pain effectively.'
       ],
       status: 'Coming Soon',
       image: '/assets/images/moringa.png'
@@ -43,11 +47,15 @@ function App() {
       description: 'Natural heart health hero. Pure, vibrant, and packed with nitrates.',
       benefits: ['Blood Pressure Support', 'Energy Booster', 'Liver Detox'],
       pointDetails: [
-        'Boosts Nitric Oxide levels, significantly improving athletic performance.',
-        'Natural source of Betaine which supports healthy liver function.',
-        'Improves blood flow to the brain, enhancing cognitive focus.',
-        'Contains powerful Betalains which have potent anti-inflammatory properties.',
-        'High fiber content supports better digestion and weight management.'
+        'Boosts Nitric Oxide levels, significantly improving athletic performance and oxygen flow.',
+        'Natural source of Betaine which prevents fatty acid buildup in the liver.',
+        'Improves blood flow to the brain, enhancing cognitive focus and delaying dementia.',
+        'Contains powerful Betalains which are potent anti-inflammatory and detox agents.',
+        'High fiber content supports better digestion and a healthy gut microbiome.',
+        'Rich in Folate (B9) which is crucial for healthy cell growth and function.',
+        'Contains Boron, which is related to the production of human sex hormones.',
+        'Helps in lowering LDL (bad) cholesterol levels naturally.',
+        'Reduces the workload on the heart by relaxing blood vessel walls.'
       ],
       status: 'Coming Soon',
       image: '/assets/images/beetroot.png'
@@ -57,11 +65,15 @@ function App() {
       description: 'Premium adaptogen to help your body manage stress and boost vitality.',
       benefits: ['Stress Relief', 'Better Sleep', 'Brain Function'],
       pointDetails: [
-        'Clinically proven to reduce cortisol levels (the stress hormone).',
-        'Enhances muscle strength and recovery after intense workouts.',
-        'Supports natural testosterone levels and overall hormonal balance.',
-        'Improves memory and cognitive reaction time.',
-        'Acts as a natural sedative to ensure deep, restorative sleep cycles.'
+        'Clinically proven to reduce cortisol levels (the stress hormone) by up to 30%.',
+        'Enhances muscle strength and recovery after intense physical workouts.',
+        'Supports natural testosterone levels and improves reproductive health.',
+        'Significantly improves memory, task performance, and cognitive reaction time.',
+        'Acts as a natural sedative to ensure deep, restorative REM sleep cycles.',
+        'Helps stabilize blood sugar levels by improving insulin sensitivity.',
+        'Boosts the activity of immune cells that fight infection.',
+        'Supports thyroid health by balancing hormone production.',
+        'Reduces anxiety symptoms and promotes a calm, centered state of mind.'
       ],
       status: 'Coming Soon',
       image: '/assets/images/ashwagandha.png'
