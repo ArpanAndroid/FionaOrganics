@@ -11,10 +11,6 @@ const OurStory = () => {
                 <div className="story-grid">
                     <div className="reveal active story-image-wrapper">
                         <img src="/assets/images/fiona-logo.jpg" className="story-main-img" alt="village roots" />
-                        <div className="story-stat-box">
-                            <h4>2025</h4>
-                            <p>Our Startup Year</p>
-                        </div>
                     </div>
                     <div className="reveal active story-content">
                         <span className="accent-text">The Beginning</span>
