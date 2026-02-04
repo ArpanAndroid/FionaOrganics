@@ -54,7 +54,9 @@ function App() {
     <>
       <header className={`${scrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'mobile-menu-active' : ''}`}>
         <div className="container nav-content">
-          <a href="#" className="logo">Fiona Organics</a>
+          <a href="#" className="logo-container">
+            <span className="logo">fiona-organics</span>
+          </a>
 
           <nav className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
             <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
@@ -85,7 +87,6 @@ function App() {
         <section id="home" className="hero">
           <div className="container" style={{ position: 'relative', zIndex: '5' }}>
             <div className="hero-content">
-              <span style={{ color: 'var(--accent)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Premier Herbal Product Manufacturer</span>
               <h1 style={{ marginTop: '1rem' }}>Pure Nature, <br />Crafted for Wellness.</h1>
               <p>Experience the finest organic powders manufactured with traditional wisdom and modern precision in Habra. 100% natural, locally sourced, and powerful.</p>
               <div style={{ display: 'flex', gap: '1.5rem' }}>
@@ -295,8 +296,10 @@ function App() {
 
       <footer style={{ padding: '4rem 0', background: '#112211', color: 'var(--white)', textAlign: 'center' }}>
         <div className="container">
-          <h2 style={{ color: 'var(--white)', marginBottom: '1.5rem' }}>Fiona Organics</h2>
-          <p style={{ opacity: '0.7', marginBottom: '2rem' }}>Leading Herbal Product Manufacturer in Habra since 2024.</p>
+          <div className="logo-container" style={{ marginBottom: '1.5rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <span className="logo">fiona-organics</span>
+          </div>
+          <p style={{ opacity: '0.7', marginBottom: '2rem' }}>Nurturing your health with the purity of nature.</p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '3rem' }}>
             <a href="#" style={{ opacity: '0.8' }}>Instagram</a>
             <a href="#" style={{ opacity: '0.8' }}>Facebook</a>
@@ -304,7 +307,7 @@ function App() {
             <a href="#" style={{ opacity: '0.8' }}>LinkedIn</a>
           </div>
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', fontSize: '0.8rem', opacity: '0.5' }}>
-            © {new Date().getFullYear()} Fiona Organics. West Bengal - 743263. Made with Purity.
+            © {new Date().getFullYear()} fiona-organics. West Bengal - 743263. Made with Purity.
           </div>
         </div>
       </footer>
