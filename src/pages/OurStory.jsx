@@ -21,7 +21,7 @@ const OurStory = () => {
                         <p className="body-text">
                             We observed that pure village herbs often lose their soul by the time they reach urban households. Supply chains, high-heat processing, and additives strip away the very essence of wellness.
                             <br /><br />
-                            Currently, we are in the **startup phase**, building our foundation in **Habra**. We are not just creating products; we are crafting a transparent sourcing and manufacturing process that respects both the farmer and the consumer. We haven't launched for sales yet—we are busy ensuring that when we do, every jar is 100% pure.
+                            Currently, we are in the **startup phase**, building our foundation in **Habra**. We are not just creating products; we are crafting a transparent sourcing and manufacturing process that respects both the farmer and the consumer. We haven't launched for sales yet—we are busy ensuring that when we do, every jar is purity guaranteed.
                         </p>
                         <div className="story-quick-stats">
                             <div className="quick-stat">
@@ -61,7 +61,7 @@ const OurStory = () => {
                         <div className="reveal active feature-card">
                             <div className="feature-icon">🛡️</div>
                             <h4>Lab-First Approach</h4>
-                            <p className="feature-desc">Our Habra facility is being designed with testing at its core. If it's not 100% natural, it won't be part of our story.</p>
+                            <p className="feature-desc">Our Habra facility is being designed with testing at its core. If it's not purely natural, it won't be part of our story.</p>
                         </div>
                     </div>
                 </div>
