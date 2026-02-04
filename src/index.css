@@ -163,7 +163,7 @@ header.scrolled {
     transform: translateY(-50%);
     width: 60%;
     height: 80%;
-    background: url('/hero-bg.jpg') center/cover no-repeat;
+    background: url('/assets/images/hero-bg.png') center/cover no-repeat;
     border-radius: 40px;
     z-index: 1;
 }
