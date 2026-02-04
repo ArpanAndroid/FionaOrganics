@@ -17,7 +17,7 @@ const HealthBenefits = () => {
             title: 'The Immunity Shield',
             desc: 'Contains 7x more Vitamin C than oranges and 46 different antioxidants.',
             icon: '🛡️',
-            details: 'Processed at low temperatures in Habra to ensure 100% nutrient retention.'
+            details: 'Processed at low temperatures in Habra to ensure maximum nutrient retention.'
         },
         {
             product: 'Beetroot Extract',
@@ -121,7 +121,7 @@ const HealthBenefits = () => {
                             Eating organic is about more than just avoiding chemicals—it's about fueling your body with the clean, raw nutrients it was designed to thrive on. Our "Habra-Processed" methodology ensures you get the maximum bio-available nutrients in every scoop.
                         </p>
                         <div className="synergy-checklist">
-                            <div className="check-item"><span>✓</span> 100% Bio-available Nutrients</div>
+                            <div className="check-item"><span>✓</span> Bio-available Nutrients</div>
                             <div className="check-item"><span>✓</span> Zero High-Heat Processing</div>
                             <div className="check-item"><span>✓</span> Lab Tested for Pesticides</div>
                         </div>

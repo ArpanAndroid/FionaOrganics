@@ -26,7 +26,7 @@ const Home = () => {
                     <div className="hero-content reveal active">
                         <span style={{ color: 'var(--accent)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Premier Herbal Collection</span>
                         <h1 style={{ marginTop: '1rem' }}>Pure Nature, <br />Crafted for Wellness.</h1>
-                        <p>Experience the finest organic powders manufactured with traditional wisdom and modern precision. 100% natural, locally sourced, and powerful.</p>
+                        <p>Experience the finest organic powders manufactured with traditional wisdom and modern precision. Pure, locally sourced, and powerful.</p>
                         <div style={{ display: 'flex', gap: '1.5rem' }}>
                             <Link to="/products" className="btn btn-primary">Shop Now</Link>
                             <Link to="/story" className="btn btn-outline">Our Story</Link>
@@ -49,8 +49,8 @@ const Home = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
                     <div className="reveal product-card" style={{ border: 'none', background: '#f8f9f8', padding: '3rem' }}>
                         <div style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>🌿</div>
-                        <h4 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>100% Organic</h4>
-                        <p>Zero pesticides, zero additives. We maintain strict organic standards from seed to jar.</p>
+                        <h4 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Ethically Sourced</h4>
+                        <p>Zero pesticides, zero additives. We maintain strict purity standards from seed to jar.</p>
                     </div>
                     <div className="reveal product-card" style={{ border: 'none', background: '#f8f9f8', padding: '3rem' }}>
                         <div style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>🏘️</div>
