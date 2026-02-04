@@ -1,110 +1,109 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const HealthBenefits = () => {
-    const products = [
+    const [activeTab, setActiveTab] = useState('all');
+
+    const categories = [
+        { id: 'all', label: 'All Benefits' },
+        { id: 'immunity', label: 'Immunity & Detox' },
+        { id: 'physical', label: 'Physical Performance' },
+        { id: 'mental', label: 'Mental Wellness' }
+    ];
+
+    const benefitsData = [
         {
-            name: 'Pure Moringa Powder',
-            description: 'The miracle tree leaf powder, rich in antioxidants and essential vitamins.',
-            benefits: ['Boosts Immunity', 'Rich in Iron', 'Anti-inflammatory'],
-            pointDetails: [
-                'Contains 7x more Vitamin C than oranges to shield your immune system.',
-                '15x more Potassium than bananas for optimal heart and muscle function.',
-                'High concentration of Chromium helps in regulating blood sugar levels.',
-                'Rich in Vitamin A, supporting healthy vision and radiant skin.',
-                'Natural detoxifier that helps flush out toxins from the liver and kidneys.',
-                'Contains 46 different types of antioxidants to combat cellular aging.',
-                'High protein content with all 9 essential amino acids for muscle repair.',
-                'Naturally boosts breast milk production in nursing mothers.',
-                'Helps reduce chronic inflammation and joint pain effectively.'
-            ]
+            product: 'Pure Moringa Powder',
+            category: 'immunity',
+            title: 'The Immunity Shield',
+            desc: 'Contains 7x more Vitamin C than oranges and 46 different antioxidants.',
+            icon: '🛡️',
+            details: 'Processed at low temperatures in Habra to ensure 100% nutrient retention.'
         },
         {
-            name: 'Beetroot Extract',
-            description: 'Natural heart health hero. Pure, vibrant, and packed with nitrates.',
-            benefits: ['Blood Pressure Support', 'Energy Booster', 'Liver Detox'],
-            pointDetails: [
-                'Boosts Nitric Oxide levels, significantly improving athletic performance and oxygen flow.',
-                'Natural source of Betaine which prevents fatty acid buildup in the liver.',
-                'Improves blood flow to the brain, enhancing cognitive focus and delaying dementia.',
-                'Contains powerful Betalains which are potent anti-inflammatory and detox agents.',
-                'High fiber content supports better digestion and a healthy gut microbiome.',
-                'Rich in Folate (B9) which is crucial for healthy cell growth and function.',
-                'Contains Boron, which is related to the production of human sex hormones.',
-                'Helps in lowering LDL (bad) cholesterol levels naturally.',
-                'Reduces the workload on the heart by relaxing blood vessel walls.'
-            ]
+            product: 'Beetroot Extract',
+            category: 'physical',
+            title: 'Athletic Powerhouse',
+            desc: 'Boosts Nitric Oxide levels, significantly improving oxygen flow.',
+            icon: '⚡',
+            details: 'Ideal for natural pre-workout routines and heart health.'
         },
         {
-            name: 'Root Ashwagandha',
-            description: 'Premium adaptogen to help your body manage stress and boost vitality.',
-            benefits: ['Stress Relief', 'Better Sleep', 'Brain Function'],
-            pointDetails: [
-                'Clinically proven to reduce cortisol levels (the stress hormone) by up to 30%.',
-                'Enhances muscle strength and recovery after intense physical workouts.',
-                'Supports natural testosterone levels and improves reproductive health.',
-                'Significantly improves memory, task performance, and cognitive reaction time.',
-                'Acts as a natural sedative to ensure deep, restorative REM sleep cycles.',
-                'Helps stabilize blood sugar levels by improving insulin sensitivity.',
-                'Boosts the activity of immune cells that fight infection.',
-                'Supports thyroid health by balancing hormone production.',
-                'Reduces anxiety symptoms and promotes a calm, centered state of mind.'
-            ]
+            product: 'Root Ashwagandha',
+            category: 'mental',
+            title: 'The Calm Adaptogen',
+            desc: 'Clinically proven to reduce cortisol (stress hormone) by up to 30%.',
+            icon: '🧘',
+            details: 'Supports restorative sleep and stabilizes blood sugar levels.'
+        },
+        {
+            product: 'Pure Moringa Powder',
+            category: 'physical',
+            title: 'Muscle Repair',
+            desc: 'High protein content with all 9 essential amino acids.',
+            icon: '💪',
+            details: 'Rich in iron and potassium for optimal muscle recovery.'
+        },
+        {
+            product: 'Beetroot Extract',
+            category: 'immunity',
+            title: 'Liver Detoxification',
+            desc: 'Natural source of Betaine which prevents fatty acid buildup.',
+            icon: '🌿',
+            details: 'Flushes out toxins and supports a healthy gut microbiome.'
+        },
+        {
+            product: 'Root Ashwagandha',
+            category: 'physical',
+            title: 'Stamina & Recovery',
+            desc: 'Enhances muscle strength and reduces exercise-induced fatigue.',
+            icon: '🏃',
+            details: 'Balances thyroid health and hormonal production.'
         }
     ];
 
+    const filteredBenefits = activeTab === 'all'
+        ? benefitsData
+        : benefitsData.filter(b => b.category === activeTab);
+
     useEffect(() => {
         window.scrollTo(0, 0);
-        const reveals = document.querySelectorAll('.reveal');
-        const handleReveal = () => {
-            reveals.forEach(reveal => {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveal.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', handleReveal);
-        handleReveal();
-        return () => window.removeEventListener('scroll', handleReveal);
     }, []);
 
     return (
         <main style={{ paddingTop: '100px' }}>
-            <section className="section" style={{ background: '#112211', color: 'white' }}>
+            <section className="section dark-section">
                 <div className="container">
-                    <div className="reveal" style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                        <span style={{ color: 'var(--accent)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Scientific Foundation</span>
-                        <h2 style={{ fontSize: '3.5rem', marginTop: '1rem', color: 'white' }}>How It Benefits You</h2>
-                        <p style={{ color: 'rgba(255,255,255,0.7)', maxWidth: '700px', margin: '1.5rem auto' }}>
-                            We don't just sell powders; we sell concentrated health. Our shade-drying process and zero-additive policy ensure the nutrients stay alive.
+                    <div className="reveal active text-center" style={{ marginBottom: '4rem' }}>
+                        <span className="accent-text">Scientific Foundation</span>
+                        <h2 className="display-h2" style={{ color: 'white' }}>Nature's Intelligence, <br />Scientifically Proven.</h2>
+                        <p className="body-text" style={{ maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)' }}>
+                            We bridge the gap between ancient herbal wisdom and modern wellness through lab-tested, additive-free manufacturing.
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
-                        {products.map((p, i) => (
-                            <div key={i} className="reveal benefit-card" style={{
-                                padding: '3rem',
-                                background: 'rgba(255,255,255,0.05)',
-                                borderRadius: '32px',
-                                border: '1px solid rgba(255,255,255,0.1)',
-                                height: '100%'
-                            }}>
-                                <h4 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: 'var(--accent)' }}>{p.name}</h4>
-                                <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-                                    {p.pointDetails.map((point, idx) => (
-                                        <li key={idx} style={{
-                                            display: 'flex',
-                                            gap: '1rem',
-                                            fontSize: '1rem',
-                                            lineHeight: '1.6',
-                                            opacity: '0.9'
-                                        }}>
-                                            <span style={{ color: 'var(--accent)', fontSize: '1.2rem', flexShrink: 0 }}>✦</span>
-                                            {point}
-                                        </li>
-                                    ))}
-                                </ul>
+                    {/* Interactive Tabs */}
+                    <div className="reveal active tabs-container">
+                        {categories.map((cat) => (
+                            <button
+                                key={cat.id}
+                                className={`tab-btn ${activeTab === cat.id ? 'active' : ''}`}
+                                onClick={() => setActiveTab(cat.id)}
+                            >
+                                {cat.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="benefits-interactive-grid">
+                        {filteredBenefits.map((benefit, i) => (
+                            <div key={i} className="reveal active interactive-benefit-card">
+                                <div className="benefit-icon-wrapper">{benefit.icon}</div>
+                                <span className="benefit-product-label">{benefit.product}</span>
+                                <h4>{benefit.title}</h4>
+                                <p>{benefit.desc}</p>
+                                <div className="benefit-footer">
+                                    <small>{benefit.details}</small>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -112,17 +111,27 @@ const HealthBenefits = () => {
             </section>
 
             <section className="section container">
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '5rem', alignItems: 'center' }}>
-                    <div className="reveal">
-                        <h2 style={{ fontSize: '3rem', marginBottom: '2rem' }}>Experience the Synergy</h2>
-                        <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.8' }}>
-                            While each product is powerful on its own, many of our customers find that combining these powders creates a synergistic effect that boosts both physical energy and mental clarity.
+                <div className="synergy-grid">
+                    <div className="reveal active">
+                        <span className="accent-text">The Synergy Effect</span>
+                        <h2 className="display-h2">Experience the Synergy</h2>
+                        <p className="body-text">
+                            While each product is powerful on its own, combining these powders creates a synergistic effect that boosts both physical energy and mental clarity.
                             <br /><br />
-                            Eating organic is about more than just avoiding chemicals—it's about fueling your body with the clean, raw nutrients it was designed to thrive on.
+                            Eating organic is about more than just avoiding chemicals—it's about fueling your body with the clean, raw nutrients it was designed to thrive on. Our "Habra-Processed" methodology ensures you get the maximum bio-available nutrients in every scoop.
                         </p>
+                        <div className="synergy-checklist">
+                            <div className="check-item"><span>✓</span> 100% Bio-available Nutrients</div>
+                            <div className="check-item"><span>✓</span> Zero High-Heat Processing</div>
+                            <div className="check-item"><span>✓</span> Lab Tested for Pesticides</div>
+                        </div>
                     </div>
-                    <div className="reveal">
-                        <img src="/assets/images/hero-bg.png" style={{ width: '100%', borderRadius: '40px', boxShadow: 'var(--shadow)' }} alt="organic synergy" />
+                    <div className="reveal active synergy-image-wrapper">
+                        <img src="/assets/images/fiona-logo.jpg" className="synergy-img" alt="organic synergy" />
+                        <div className="synergy-floating-badge">
+                            <strong>Pure</strong>
+                            <span>Quality Guaranteed</span>
+                        </div>
                     </div>
                 </div>
             </section>
