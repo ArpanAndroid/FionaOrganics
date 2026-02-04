@@ -140,6 +140,14 @@ header.scrolled {
     align-items: center;
 }
 
+.nav-links a.active-link {
+    color: var(--accent);
+}
+
+.nav-links a.active-link::after {
+    transform: scaleX(1);
+}
+
 .nav-links a:hover {
     color: var(--accent);
 }
