@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,17 +52,31 @@ function App() {
 
   return (
     <>
-      <header className={scrolled ? 'scrolled' : ''}>
+      <header className={`${scrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'mobile-menu-active' : ''}`}>
         <div className="container nav-content">
           <a href="#" className="logo">Fiona Organics</a>
-          <nav className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#story">Our Story</a>
-            <a href="#products">Products</a>
-            <a href="#benefits">Health Benefits</a>
-            <a href="#contact">Contact</a>
+
+          <nav className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
+            <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
+            <a href="#story" onClick={() => setMobileMenuOpen(false)}>Our Story</a>
+            <a href="#products" onClick={() => setMobileMenuOpen(false)}>Products</a>
+            <a href="#benefits" onClick={() => setMobileMenuOpen(false)}>Health Benefits</a>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+            <button className="btn btn-primary mobile-only" style={{ marginTop: '2rem' }}>Get Updates</button>
           </nav>
-          <button className="btn btn-primary" style={{ padding: '0.6rem 1.5rem' }}>Get Updates</button>
+
+          <div className="header-actions">
+            <button className="btn btn-outline desktop-only" style={{ padding: '0.6rem 1.5rem' }}>Get Updates</button>
+            <button
+              className={`menu-toggle ${mobileMenuOpen ? 'active' : ''}`}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
       </header>
 
