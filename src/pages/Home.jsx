@@ -22,8 +22,8 @@ const Home = () => {
     return (
         <main>
             <section className="hero">
-                <div className="container" style={{ position: 'relative', zIndex: '5' }}>
-                    <div className="hero-content">
+                <div className="container">
+                    <div className="hero-content reveal active">
                         <span style={{ color: 'var(--accent)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Premier Herbal Collection</span>
                         <h1 style={{ marginTop: '1rem' }}>Pure Nature, <br />Crafted for Wellness.</h1>
                         <p>Experience the finest organic powders manufactured with traditional wisdom and modern precision. 100% natural, locally sourced, and powerful.</p>
@@ -32,8 +32,10 @@ const Home = () => {
                             <Link to="/story" className="btn btn-outline">Our Story</Link>
                         </div>
                     </div>
+                    <div className="hero-image-wrapper reveal active">
+                        <div className="hero-image"></div>
+                    </div>
                 </div>
-                <div className="hero-image" style={{ borderRadius: '0 0 0 100px' }}></div>
             </section>
 
             <section className="section container">
@@ -71,23 +73,23 @@ const Home = () => {
                         <h2 style={{ color: 'white', fontSize: '3rem', marginTop: '1rem' }}>Direct from the Source</h2>
                     </div>
                     <div className="product-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
-                        <div className="reveal product-card" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                            <img src="/assets/images/moringa.png" alt="Moringa" style={{ filter: 'brightness(0.9)' }} />
-                            <h4 style={{ color: 'white' }}>Pure Moringa</h4>
-                            <p style={{ color: 'rgba(255,255,255,0.7)' }}>The "Miracle Tree" leaf powder for total body revitalization.</p>
-                            <Link to="/products" className="btn btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)', marginTop: '1.5rem' }}>Learn More</Link>
+                        <div className="reveal product-card" style={{ background: 'var(--white)', border: '1px solid rgba(0,0,0,0.05)' }}>
+                            <img src="/assets/images/moringa.png" alt="Moringa" className="product-img" />
+                            <h4>Pure Moringa</h4>
+                            <p style={{ color: 'var(--text-muted)' }}>The "Miracle Tree" leaf powder for total body revitalization.</p>
+                            <Link to="/products" className="btn btn-outline" style={{ marginTop: '1.5rem' }}>Learn More</Link>
                         </div>
-                        <div className="reveal product-card" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                            <img src="/assets/images/ashwagandha.png" alt="Ashwagandha" style={{ filter: 'brightness(0.9)' }} />
-                            <h4 style={{ color: 'white' }}>Root Ashwagandha</h4>
-                            <p style={{ color: 'rgba(255,255,255,0.7)' }}>Ancient adaptogen for modern stress and hormone balance.</p>
-                            <Link to="/products" className="btn btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)', marginTop: '1.5rem' }}>Learn More</Link>
+                        <div className="reveal product-card" style={{ background: 'var(--white)', border: '1px solid rgba(0,0,0,0.05)' }}>
+                            <img src="/assets/images/ashwagandha.png" alt="Ashwagandha" className="product-img" />
+                            <h4>Root Ashwagandha</h4>
+                            <p style={{ color: 'var(--text-muted)' }}>Ancient adaptogen for modern stress and hormone balance.</p>
+                            <Link to="/products" className="btn btn-outline" style={{ marginTop: '1.5rem' }}>Learn More</Link>
                         </div>
-                        <div className="reveal product-card" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                            <img src="/assets/images/beetroot.png" alt="Beetroot" style={{ filter: 'brightness(0.9)' }} />
-                            <h4 style={{ color: 'white' }}>Vibrant Beetroot</h4>
-                            <p style={{ color: 'rgba(255,255,255,0.7)' }}>Natural nitrate powerhouse for energy and blood flow.</p>
-                            <Link to="/products" className="btn btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)', marginTop: '1.5rem' }}>Learn More</Link>
+                        <div className="reveal product-card" style={{ background: 'var(--white)', border: '1px solid rgba(0,0,0,0.05)' }}>
+                            <img src="/assets/images/beetroot.png" alt="Beetroot" className="product-img" />
+                            <h4>Vibrant Beetroot</h4>
+                            <p style={{ color: 'var(--text-muted)' }}>Natural nitrate powerhouse for energy and blood flow.</p>
+                            <Link to="/products" className="btn btn-outline" style={{ marginTop: '1.5rem' }}>Learn More</Link>
                         </div>
                     </div>
                 </div>

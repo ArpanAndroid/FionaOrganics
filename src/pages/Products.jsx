@@ -55,7 +55,7 @@ const Products = () => {
                     {products.map((p, i) => (
                         <div key={i} className="reveal product-card">
                             <span className="badge">{p.status}</span>
-                            <img src={p.image} alt={p.name} />
+                            <img src={p.image} alt={p.name} className="product-img" />
                             <h4>{p.name}</h4>
                             <p>{p.description}</p>
                             <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', marginTop: '1rem' }}>
